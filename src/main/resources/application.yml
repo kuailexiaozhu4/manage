@@ -1,0 +1,27 @@
+server:
+  port: 9999
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/manage?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  main:
+    banner-mode: off
+  redis:
+    port: 6379
+    host: 47.120.0.221
+    database: 0
+    password:
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+    banner: off
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
