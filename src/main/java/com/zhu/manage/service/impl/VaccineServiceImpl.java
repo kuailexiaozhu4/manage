@@ -23,7 +23,7 @@ public class VaccineServiceImpl implements VaccineService {
     public Page getPage(Long current, Long size, Vaccine vaccine) {
         List<Vaccine> list = vaccineDao.getList((current - 1) * size, size, vaccine);
         Long total = vaccineDao.countVaccine(vaccine);
-        Page page = new Page(total,size, current, list);
+        Page page = new Page(total, size, current, list);
         return page;
     }
 

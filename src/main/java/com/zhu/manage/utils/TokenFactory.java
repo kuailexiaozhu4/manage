@@ -18,8 +18,8 @@ import java.util.Map;
 public class TokenFactory {
     //    盐值不可以设置过短,太短会报异常
     private String secret = "zhuwulong";
-    //    过期时间 s  30*60
-    private long expiration = 60 * 60;
+    //    过期时间 s  60*60
+    private long expiration = 60 * 60 * 1000;
 
     public String generateToken(User user) {
         Map<String, Object> map = new HashMap<>();
@@ -34,7 +34,7 @@ public class TokenFactory {
         return Jwts.builder()
                 .setClaims(map)
                 .signWith(SignatureAlgorithm.HS512, secret)
-                .setExpiration(new Date(System.currentTimeMillis() + expiration * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
                 .compact();
     }
 

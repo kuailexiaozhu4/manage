@@ -7,5 +7,5 @@ import com.zhu.manage.utils.Page;
  * @date 2023年04月
  */
 public interface AppUserVaccineService {
-    Page getPage(Long current, Long size, String vaccineName, String appUserName, Integer hospitalId,Integer sign);
+    Page getPage(Long current, Long size, String vaccineName, String appUserName, Integer hospitalId, Integer sign);
 }

@@ -6,7 +6,6 @@ import com.zhu.manage.service.AppUserVaccineService;
 import com.zhu.manage.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,9 +18,9 @@ public class AppUserVaccineServiceImpl implements AppUserVaccineService {
     @Autowired
     private AppUserVaccineDao appUserVaccineDao;
 
-    public Page getPage(Long current, Long size, String vaccineName, String appUserName, Integer hospitalId,Integer sign) {
-        List<AppUserVaccine> lists = appUserVaccineDao.getListByConditions((current - 1) * size, size, vaccineName, appUserName, hospitalId,sign);
-        Long total = appUserVaccineDao.countList(vaccineName, appUserName, hospitalId,sign);
+    public Page getPage(Long current, Long size, String vaccineName, String appUserName, Integer hospitalId, Integer sign) {
+        List<AppUserVaccine> lists = appUserVaccineDao.getListByConditions((current - 1) * size, size, vaccineName, appUserName, hospitalId, sign);
+        Long total = appUserVaccineDao.countList(vaccineName, appUserName, hospitalId, sign);
         Page page = new Page(total, current, size, lists);
         return page;
     }

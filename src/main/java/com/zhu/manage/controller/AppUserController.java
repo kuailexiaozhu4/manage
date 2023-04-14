@@ -53,7 +53,7 @@ public class AppUserController {
         if (getAppUser == null) {
             return Result.fail("用户不存在");
         }
-        return appUserService.updateUser(appUser) == true ? Result.success("修改成功",null) : Result.fail("用户信息更新失败");
+        return appUserService.updateUser(appUser) == true ? Result.success("修改成功", null) : Result.fail("用户信息更新失败");
     }
 
     //    app
