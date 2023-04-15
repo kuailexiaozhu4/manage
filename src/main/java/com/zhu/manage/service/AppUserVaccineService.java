@@ -1,5 +1,6 @@
 package com.zhu.manage.service;
 
+import com.zhu.manage.domain.AppUserVaccine;
 import com.zhu.manage.utils.Page;
 
 /**
@@ -8,4 +9,6 @@ import com.zhu.manage.utils.Page;
  */
 public interface AppUserVaccineService {
     Page getPage(Long current, Long size, String vaccineName, String appUserName, Integer hospitalId, Integer sign);
+
+    Boolean setSign(AppUserVaccine appUserVaccine);
 }

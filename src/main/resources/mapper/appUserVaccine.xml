@@ -9,22 +9,24 @@
         <result column="time" property="time"></result>
         <result column="hospital_id" property="hospitalId"></result>
         <result column="sign" property="sign"></result>
-        <association column="app_user_id" property="appUserId" javaType="com.zhu.manage.domain.AppUser">
+        <association column="app_user_id" property="appUser" javaType="com.zhu.manage.domain.AppUser">
             <id column="u_id" property="id"></id>
             <result column="u_name" property="name"></result>
             <result column="phone" property="phone"></result>
             <result column="age" property="age"></result>
         </association>
-        <association column="vaccine_id" property="vaccineId" javaType="com.zhu.manage.domain.Vaccine">
+        <association column="vaccine_id" property="vaccine" javaType="com.zhu.manage.domain.Vaccine">
             <id column="v_id" property="id"></id>
             <result column="v_name" property="name"></result>
             <result column="type_id" property="typeId"></result>
             <result column="count" property="count"></result>
+            <result column="create_date" property="createDate"></result>
+            <result column="expire_date" property="expireDate"></result>
         </association>
     </resultMap>
     <select id="getListByConditions" resultMap="appUserVaccineType">
-        select *,app_user_vaccine.*,app_user.name "u_name", app_user.id "u_id",
-        vaccine.id "v_id" ,vaccine.name "v_name" from app_user_vaccine,app_user,vaccine
+        select *,app_user_vaccine.*,app_user.name "u_name",app_user.*, app_user.id "u_id",
+        vaccine.id "v_id" ,vaccine.name "v_name",vaccine.* from app_user_vaccine,app_user,vaccine
         <where>
             app_user_vaccine.hospital_id=#{hospitalId}
             and app_user_vaccine.sign=#{sign}
@@ -54,4 +56,9 @@
             </if>
         </where>
     </select>
+    <update id="updateSign" parameterType="com.zhu.manage.domain.AppUserVaccine">
+        update app_user_vaccine
+        set sign=#{sign}
+        where id = #{id}
+    </update>
 </mapper>

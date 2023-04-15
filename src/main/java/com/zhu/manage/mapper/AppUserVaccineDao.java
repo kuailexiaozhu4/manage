@@ -15,4 +15,6 @@ public interface AppUserVaccineDao extends BaseMapper<AppUserVaccine> {
     List<AppUserVaccine> getListByConditions(Long current, Long size, String vaccineName, String appUserName, Integer hospitalId, Integer sign);
 
     Long countList(String vaccineName, String appUserName, Integer hospitalId, Integer sign);
+
+    int updateSign(AppUserVaccine appUserVaccine);
 }

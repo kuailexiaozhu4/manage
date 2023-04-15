@@ -15,8 +15,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class AppUserVaccine {
     private Integer id;
-    private AppUser appUserId;
-    private Vaccine vaccineId;
+    private AppUser appUser;
+    private Vaccine vaccine;
     private Date appointDate;
     private Date infectDate;
     private Integer time;

@@ -24,4 +24,10 @@ public class AppUserVaccineServiceImpl implements AppUserVaccineService {
         Page page = new Page(total, current, size, lists);
         return page;
     }
+
+    @Override
+    public Boolean setSign(AppUserVaccine appUserVaccine) {
+        int change = appUserVaccineDao.updateSign(appUserVaccine);
+        return change > 0;
+    }
 }

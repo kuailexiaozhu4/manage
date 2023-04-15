@@ -1,5 +1,6 @@
 package com.zhu.manage.controller;
 
+import com.zhu.manage.domain.AppUserVaccine;
 import com.zhu.manage.service.AppUserVaccineService;
 import com.zhu.manage.utils.Page;
 import com.zhu.manage.utils.Result;
@@ -27,7 +28,13 @@ public class AppUserVaccineController {
             page = appUserVaccineService.getPage(1L, size, vaccineName, appUserName, hospitalId, sign);
         }
         return Result.success(page);
+    }
 
+    @PutMapping()
+    public Result setSign(@RequestBody AppUserVaccine appUserVaccine) {
+        System.out.println(appUserVaccine);
+        Boolean flag = appUserVaccineService.setSign(appUserVaccine);
+        return flag == true ? Result.success("批准成功", null) : Result.fail("批准失败");
     }
 
 }
