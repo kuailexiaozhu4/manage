@@ -22,9 +22,9 @@ import java.util.HashMap;
 public class UserController {
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private RedisTemplate redisTemplate;
+//
+//    @Autowired
+//    private RedisTemplate redisTemplate;
 
     @PostMapping("/login")
     public Result Login(@RequestBody User user) {

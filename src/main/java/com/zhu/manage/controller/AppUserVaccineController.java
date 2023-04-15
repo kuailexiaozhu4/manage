@@ -32,7 +32,6 @@ public class AppUserVaccineController {
 
     @PutMapping()
     public Result setSign(@RequestBody AppUserVaccine appUserVaccine) {
-        System.out.println(appUserVaccine);
         Boolean flag = appUserVaccineService.setSign(appUserVaccine);
         return flag == true ? Result.success("批准成功", null) : Result.fail("批准失败");
     }

@@ -22,7 +22,6 @@ public class VaccineController {
     //查询疫苗信息
     @GetMapping("/{current}/{size}")
     public Result getVaccines(@PathVariable Long current, @PathVariable Long size, Vaccine vaccine) {
-        System.out.println(vaccine);
         Page page = vaccineService.getPage(current, size, vaccine);
         if (current > page.getPageNumber()) {
             page = vaccineService.getPage(1L, size, vaccine);

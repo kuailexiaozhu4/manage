@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ParseTokenController {
     @PostMapping
     public Result valid(@RequestBody String token, @RequestBody String phone) {
-        System.out.println(phone);
         if (token == null) {
             return Result.fail("未登录");
         }
